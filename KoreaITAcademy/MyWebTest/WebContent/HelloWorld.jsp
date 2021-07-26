@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	안녕하세요
+	Hello World~
 </body>
 </html>
