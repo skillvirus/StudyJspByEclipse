@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>JavaScript typeof연산자</title>
+		<script>
+			function temp() {
+				return 0;
+			}
+			
+			document.write("typeof(5) : " + typeof(5), "<br>");
+			document.write("typeof(5.5) : " + typeof(5.5), "<br>");
+			document.write("typeof('자바스크립트') : " + typeof("자바스크립트"), "<br>");
+			document.write("typeof('1') : " + typeof("1"), "<br>");
+			document.write("typeof(x) : " + typeof(x), "<br>");
+			document.write("typeof(undefined) : " + typeof(undefined), "<br>");
+			document.write("typeof([1,2,3,4]) : " + typeof([1,2,3,4]), "<br>");
+			document.write("typeof({'one':'하나', 'two':'둘'}) : " + typeof({'one':'하나', 'two':'둘'}), "<br>");
+			document.write("typeof(temp) : " + typeof(temp), "<br>");
+			
+			document.write("'HI' / 2 : " + ("HI?" / 2), "<br>");
+			document.write("typeof('HI' / 2) : " + (typeof("HI" / 2)), "<br>"); //number에는 일반숫자외에 Infinity, -Infinity, NaN 포함
+			document.write("typeof(true) : " + typeof(true), "<br>");
+			
+		</script>
+	</head>
+
+	<body>
+	
+	</body>
+</html>

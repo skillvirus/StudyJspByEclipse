@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>JavaScript 반복문</title>
+		<script>
+			document.write("======구구단======<br>");
+			for(var i = 2; i < 10; i++) {
+				for (var j = 1; j < 10; j++) {
+					document.write(i + " X " + j + " = " + (i * j), "<br>");
+				}
+				document.write("<br>");
+			}
+			
+			document.write("======평균계산======<br>");
+			var value1 = [100, 80, 50, 70, 90];
+			var value2 = [90, 60, 100, 90, 70];
+			
+			function average(value) {
+				var sum = 0;
+				for (var i = 0; i < value.length; i++) {
+					sum += value[i];
+				}				
+				
+				return sum / value.length;
+			}
+			
+			document.write("vlaue1 : " + value1, "<br>");
+			document.write("vlaue2 : " + value2, "<br>");
+			
+			document.write("vlaue1 의 평균 : " + average(value1));
+			document.write("<br>");
+			document.write("vlaue2 의 평균 : " + average(value2));		
+		</script>
+	</head>
+	
+	<body>
+	
+	</body>
+</html>

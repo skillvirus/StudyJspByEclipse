@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>JavaScript 형변환</title>
+		<script>
+			let one = '1';
+			document.write("one : " + one, "<br>");
+			document.write("one + one : " + (one + one), "<br>");
+			document.write("Number(one) + Number(one) : " + (Number(one) + Number(one)), "<br>");
+			
+			let two = 2;
+			document.write("two : " + two, "<br>");
+			document.write("two + two : " + (two + two), "<br>");
+			document.write("String(two) + String(two) : " + (String(two) + String(two)), "<br>");
+			
+			document.write("one + two : " + (one + two), "<br>"); //더 큰 자료형으로 묵시적 형변환
+			
+			let three = one + two;
+			document.write("typeof(three) : " + typeof(three), "<br>");
+			
+			let four = 'SongMG' + two;
+			document.write("four : " + four, "<br>");
+			
+			document.write("Boolean(1) : " + Boolean(1), "<br>");
+			document.write("Boolean(0) : " + Boolean(0), "<br>");
+			document.write("Boolean('0') : " + Boolean('0'), "<br>");
+			
+			document.write("Boolean('hello') : " + Boolean("hello"), "<br>");
+			document.write("Boolean('') : " + Boolean(""), "<br>");
+		</script>
+	</head>
+
+	<body>
+	
+	</body>
+</html>

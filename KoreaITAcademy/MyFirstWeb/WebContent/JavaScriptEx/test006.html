@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>JavaScript 조건문</title>
+		<script>
+			document.write("======IF문======<br>");
+			
+			let score = 30;
+			
+			document.write("당신의 평균점수는 : " + score, "<br>");
+			
+			if (score >= 90) {
+				document.write("당신은 우등생입니다.", "<br>");
+			} else if (score >= 40) {
+				document.write("조금만 더 노력하세요.", "<br>");
+			} else {
+				document.write("많이 노력해야겠네요.", "<br>");
+			}
+			document.write("<br>");
+			
+			document.write("======SWITCH문======<br>");
+			
+			let day;
+			switch(new Date().getDay()) {
+				case 0:
+					day = "일요일";
+					break;
+				case 1:
+					day = "월요일";
+					break;
+				case 2:
+					day = "화요일";
+					break;
+				case 3:
+					day = "수요일";
+					break;
+				case 4:
+					day = "목요일";
+					break;
+				case 5:
+					day = "금요일";
+					break;
+				case 6:
+					day = "토요일";
+					break;
+			}
+			
+			document.write(day, "<br>");
+		</script>
+	</head>
+	
+	<body>
+	
+	</body>
+</html>

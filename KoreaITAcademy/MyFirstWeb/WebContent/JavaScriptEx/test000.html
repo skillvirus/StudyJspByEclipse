@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>JavaScript 자료형</title>
+		<script>
+			document.write("======숫자======<br>");
+			var num = 10; //숫자형(주석 표기 예제)
+			document.write("변수 num : " + num, "<br>");
+			document.write("변수 num을 3으로 나누기(실수) : " + num / 3, "<br>");
+			document.write("변수 num을 3으로 나누기(정수) : " + parseInt(num / 3), "<br>");
+			document.write("<br>");
+			
+			document.write("======숫자사칙연산======<br>");
+			document.write("더하기 : 2 + 2.5 = ", 2 + 2.5, "<br>");
+			document.write("빼기 : 5 - 7 = ", 5 - 7, "<br>");
+			document.write("곱하기 : 3 * 2 = ", 3 * 2, "<br>");
+			document.write("나누기 : 2 / 2 = ", 2 / 2, "<br>");
+			document.write("0으로 나누기 : 1 / 0 = ", 1 / 0, "<br>");
+			document.write("<br>");
+			
+			document.write("======문자열======<br>");
+			var day = 7;
+			document.write("오늘은 " + day + "일 입니다.", "<br>");
+			document.write('오늘은 ' + day + '일 입니다.', "<br>"); //JavaScript의 문자열은 ' 와 " 사용 가능
+			document.write("<br>");
+			
+			document.write("======논리형======<br>");
+			var logic1 = true;
+			var logic2 = false;
+			var logic3 = 3 > 2; //true
+			var logic4 = 3 < 2; //false
+			document.write("logic1 : " + logic1, "<br>");
+			document.write("logic2 : " + logic2, "<br>");
+			document.write("logic3 : " + logic3, "<br>");
+			document.write("logic4 : " + logic4, "<br>");
+			document.write("<br>");
+			
+			document.write("======초기화 관련======<br>");
+			var a = ''; //빈값
+			var b = null; //null
+			var c; //초기화 하지 않음
+			document.write("a : " + a, "<br>");
+			document.write("b : " + b, "<br>");
+			document.write("c : " + c, "<br>");
+			document.write("<br>");
+			
+			document.write("======객체(object)======<br>");
+			var person = {
+				name : "송명규",
+				age : 46,
+				married : true
+			}
+			
+			person.belong = "KoreaITAcademy";
+			
+			document.write("이름(객체타입) : " + person.name, "<br>"); //객체형태로 속성 출력
+			document.write("나이(객체타입) : " + person.age, "<br>"); //객체형태로 속성 출력
+			document.write("결혼(객체타입) : " + person.married, "<br>"); //객체형태로 속성 출력
+			document.write("소속(객체타입) : " + person.belong, "<br>"); //객체형태로 속성 출력
+			document.write("<br>");
+			document.write("이름(배열타입) : " + person["name"], "<br>"); //배열형태로 속성 출력
+			document.write("나이(배열타입) : " + person["age"], "<br>"); //배열형태로 속성 출력
+			document.write("결혼(배열타입) : " + person["married"], "<br>"); //배열형태로 속성 출력
+			document.write("소속(배열타입) : " + person["belong"], "<br>"); //배열형태로 속성 출력
+			document.write("<br>");
+			
+			document.write("======배열======<br>");
+			var array = ["사과","바나나","수박"];
+			document.write("array[0] : " + array[0], "<br>");
+			document.write("array[1] : " + array[1], "<br>");
+			document.write("array[2] : " + array[2], "<br>");
+			document.write("<br>");
+			
+			document.write("======배열내장함수======<br>");
+			var array01 = ["사과", "수박", "복숭아"];
+			var array02 = ["멜론", "체리", "바나나"];
+			
+			document.write("array01 : " + array01, "<br>");
+			document.write("array02 : " + array02, "<br>");
+			
+			array01.pop();
+			document.write("array01 POP : " + array01, "<br>");
+			array01.push("감귤");
+			document.write("array01 PUSH : " + array01, "<br>");
+			
+			document.write("array01 toString : " + array01.toString(), "<br>");
+			document.write("array01 join : " + array01.join("*"), "<br>");
+			document.write("array01 shift : " + array01.shift(), "<br>");
+			document.write("array01 slice : " + array01.slice(0, 2), "<br>");
+			document.write("array01 concat : " + array01.concat(array02), "<br>");
+			document.write("array01 reverse : " + array01.reverse(), "<br>");
+			document.write("array01 sort : " + array01.sort(), "<br>");
+		</script>
+	</head>
+		
+	<body>
+		
+	</body>
+</html>
