@@ -4,7 +4,7 @@
 
 ### JSP 프로그래밍 실습 예제
 
-강의용 PPT 1-1주차 : [링크](https://1drv.ms/p/s!AvogHfPRl8xviKAiFxWhZErmhW_NLQ?e=kYOGdx)   
-강의용 PPT 1-2주차 :    
+강의용 PPT 1-1주차 : [링크](https://1drv.ms/p/s!AvogHfPRl8xviKAiFxWhZErmhW_NLQ?e=515AJK)   
+강의용 PPT 1-2주차 : [링크](https://1drv.ms/p/s!AvogHfPRl8xviJ1yuwInVqukOWuq_Q?e=nVWeNu)   
 강의용 PPT 1-3주차 :    
 강의용 PPT 1-4주차 :    
