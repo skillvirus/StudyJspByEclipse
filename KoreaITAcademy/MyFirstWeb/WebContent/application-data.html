@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style>
+			label {
+	  			display:inline-block;
+	  			width:120px
+			}
+			input[type="text"] {
+				width:150px
+			}
+			input[type="password"] {
+				width:150px
+			}
+			input[type="submit"] {
+				width:80px;
+				height:30px
+			}
+		</style>
+	</head>
+	<body>
+		<form action="application-data" method="POST">
+			<div>
+				<label>ID</label>
+				<input name="id" type="text">
+			</div>
+			<div>
+				<label>Password</label>
+				<input name="pwd" type="password">
+			</div>
+			<div>
+				<input type="submit" value="확인"/>
+			</div>
+		</form>
+	</body>
+</html>

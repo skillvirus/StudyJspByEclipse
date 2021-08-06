@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="EUC-KR">
+		<title>POST REQUEST</title>
+		<style>
+			label {
+	  			display:inline-block;
+	  			width:120px
+			}
+			input[type="text"] {
+				width:150px
+			}
+			input[type="submit"] {
+				width:80px;
+				height:30px
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<form action="postRequest" method="POST">
+				<div>
+					<label>사용자ID</label>
+					<input name="userID" type="text">
+				</div>
+				<div>
+					<label>사용자성명</label>
+					<input name="userName" type="text">
+				</div>
+				<div>
+					<label>전화번호</label>
+					<input name="userPhoneNum" type="text">
+				</div>
+				<div>
+					<label>비고</label>
+					<textarea name="userComment"></textarea>
+				</div>
+				<div>
+					<input type="submit" value="출력"/>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>
