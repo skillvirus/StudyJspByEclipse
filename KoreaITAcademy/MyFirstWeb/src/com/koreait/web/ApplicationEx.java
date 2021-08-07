@@ -33,15 +33,21 @@ public class ApplicationEx extends HttpServlet {
 				out.println(id + "님 접속하였습니다.");
 				out.print("<br>");
 				out.println("안녕하세요.");
+				//response.sendRedirect("/main-page.html");
+				//response.sendRedirect("/main-page.jsp");
 			} else {
 				if(id.equals(application.getAttribute("id"))) {
 					out.println(id + "님은 현재 접속한 사용자입니다.");
 					out.print("<br>");
 					out.println("로그인할 수 없습니다.");
+					//response.sendRedirect("/error-page.html");
+					//response.sendRedirect("/error-page.jsp");
 				} else {
 					out.println(id + "님 접속하였습니다.");
 					out.print("<br>");
 					out.println("안녕하세요.");
+					//response.sendRedirect("/main-page.html");
+					//response.sendRedirect("/main-page.jsp");
 				}
 			}
 			application.setAttribute("id", id);
