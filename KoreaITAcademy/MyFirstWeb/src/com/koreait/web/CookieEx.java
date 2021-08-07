@@ -57,7 +57,10 @@ public class CookieEx extends HttpServlet {
 				}
 			}
 			
+			cookieID.setPath("/cookie-data"); //cookie 경로 지정 (context와 불일치하는 경로를 지정하면 cookie 저장 못함)
+			cookieID.setMaxAge(60); //만료일자 지정(cookie를 전달한 이후, 단위:초), (12*60*60) -> 하루
 			response.addCookie(cookieID); //클라이언트의 웹브라우저에 전달
+			
 		} else {
 			out.println("비밀번호를 확인하세요.");
 		}
