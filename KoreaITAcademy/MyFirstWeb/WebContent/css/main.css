@@ -1,0 +1,21 @@
+.link {
+	text-decoration:none;
+	color:black
+} 
+
+.header {
+	text-align:right;
+	padding:0px 200px 0px 0px;
+}
+
+.footer {
+	text-align:center;
+}
+
+.main {
+	text-align:center;
+}
+
+.left {
+	text-align:center;
+}
