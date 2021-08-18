@@ -3,11 +3,11 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>도서 대여 관리</title>
+		<title>사용자 정보 등록</title>
 		<link rel="stylesheet" href="/css/main.css">
 	</head>
 	<body>
-	    <table class="mainTable" border="1">
+		<table class="mainTable" border="1">
 			<tr height="100px">
 				<td colspan=2>
 					<jsp:include page="/sub-page/header.jsp" flush="false"/>
@@ -18,7 +18,7 @@
 					<jsp:include page="/sub-page/left.jsp" flush="false"/>
 				</td>
 				<td class="main">
-					<h1>도서 대여 관리 시스템</h1>
+					<h1>사용자 정보 등록</h1>
 				</td>
 			</tr>
 			<tr height="100px">
@@ -27,5 +27,5 @@
 				</td>
 			</tr>
 	    </table>
-    </body>
+	</body>
 </html>

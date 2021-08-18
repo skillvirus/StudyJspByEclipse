@@ -6,7 +6,10 @@
 		<title>Header</title>
 	</head>
 	<body>
-		<div class="header">
+		<div class="header-left">
+			<h1>SMG'S 도서 대여점</h1>
+		</div>
+		<div class="header-right">
 			<a class="link" href="#">로그인</a>
 			<a class="link" href="#">회원가입</a>
 		</div>

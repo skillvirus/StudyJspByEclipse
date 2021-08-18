@@ -3,9 +3,14 @@
 	color:black
 } 
 
-.header {
+.header-left {
+	text-align:left;
+	padding:10px 0px 0px 50px;
+}
+
+.header-right {
 	text-align:right;
-	padding:0px 200px 0px 0px;
+	padding:0px 100px 0px 0px;
 }
 
 .footer {
@@ -18,4 +23,14 @@
 
 .left {
 	text-align:center;
+	width:100%
+}
+
+.mainTable {
+	width:100%
+}
+
+.subTable {
+	width:80%;
+	margin:auto;
 }
