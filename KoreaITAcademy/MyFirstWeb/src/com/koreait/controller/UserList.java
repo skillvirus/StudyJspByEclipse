@@ -1,4 +1,4 @@
-package com.koreait.control;
+package com.koreait.controller;
 
 import java.io.IOException;
 import java.sql.ResultSet;
@@ -13,7 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.koreait.model.User;
 
-@WebServlet("/user-info/user-list")
+//@WebServlet("/user-info/user-list")
+@WebServlet("/user-info/user-list2")
 public class UserList extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -50,6 +51,7 @@ public class UserList extends HttpServlet {
 		}
 		
 		request.setAttribute("userList", userList);
-		request.getRequestDispatcher("/user-info/user-list.jsp").forward(request, response);
+		//request.getRequestDispatcher("/user-info/user-list.jsp").forward(request, response); //JSTL사용
+		request.getRequestDispatcher("/user-info/user-list2.jsp").forward(request, response); //EL사용/JSTL미사용
 	}
 }

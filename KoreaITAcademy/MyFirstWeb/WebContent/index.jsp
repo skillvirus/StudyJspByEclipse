@@ -10,7 +10,7 @@
 	    <table class="mainTable" border="1">
 			<tr height="100px">
 				<td colspan=2>
-					<jsp:include page="/sub-page/header.jsp" flush="false"/>
+					<jsp:include page="/sub-page/top.jsp" flush="false"/>
 				</td>
 			</tr>
 			<tr height="600px">
@@ -23,7 +23,7 @@
 			</tr>
 			<tr height="100px">
 				<td colspan=2>
-					<jsp:include page="/sub-page/footer.jsp" flush="false"/>
+					<jsp:include page="/sub-page/bottom.jsp" flush="false"/>
 				</td>
 			</tr>
 	    </table>

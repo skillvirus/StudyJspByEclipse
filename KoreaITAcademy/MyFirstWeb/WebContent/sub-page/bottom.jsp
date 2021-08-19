@@ -3,12 +3,12 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Footer</title>
+		<title>Bottom</title>
 	</head>
 	<body>
-		<div class="footer">
+		<div class="bottom">
 			▪고객센터 : 000-0000-0000
-			▪<a class="link" href="#"><b>개인정보처리 방침</b></a>
+			▪<a href="#"><b>개인정보처리 방침</b></a>
 		</div>
 	</body>
 </html>

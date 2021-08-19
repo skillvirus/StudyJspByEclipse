@@ -18,7 +18,7 @@
 					<jsp:include page="/sub-page/left.jsp" flush="false"/>
 				</td>
 				<td class="main">
-					<h1>사용자 정보 상세</h1>
+					<h1>사용자 정보 수정</h1>
 				</td>
 			</tr>
 			<tr height="100px">

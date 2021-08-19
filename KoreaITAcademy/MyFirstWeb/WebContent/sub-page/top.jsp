@@ -3,15 +3,15 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Header</title>
+		<title>Top</title>
 	</head>
 	<body>
-		<div class="header-left">
+		<div class="top-left">
 			<h1>SMG'S 도서 대여점</h1>
 		</div>
-		<div class="header-right">
-			<a class="link" href="#">로그인</a>
-			<a class="link" href="#">회원가입</a>
+		<div class="top-right">
+			<a href="#">로그인</a>&nbsp;&nbsp;
+			<a href="#">회원가입</a>
 		</div>
 	</body>
 </html>

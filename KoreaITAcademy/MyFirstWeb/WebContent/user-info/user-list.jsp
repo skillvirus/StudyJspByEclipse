@@ -5,7 +5,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>사용자 정보 관리</title>
+		<title>사용자 정보 관리(JSTL사용)</title>
 		<link rel="stylesheet" href="/css/main.css">
 	</head>
 	<body>
@@ -13,7 +13,7 @@
 		    <table class="mainTable" border="1">
 				<tr height="100px">
 					<td colspan=2>
-						<jsp:include page="/sub-page/header.jsp" flush="false"/>
+						<jsp:include page="/sub-page/top.jsp" flush="false"/>
 					</td>
 				</tr>
 				<tr height="600px">
@@ -29,7 +29,6 @@
 									<td><b>이름</b></td>
 									<td><b>전화번호</b></td>
 								</tr>
-								<!-- 
 								<%
 								List<User> userList = (List<User>)request.getAttribute("userList");
 								for (User u : userList) {
@@ -37,11 +36,10 @@
 								%>
 								<tr>
 									<td>${u.userID}</td>
-									<td><a class="link" href="user-detail.jsp?id=${u.userID}">${u.userName}</a></td>
+									<td><a href="user-detail.jsp?id=${u.userID}">${u.userName}</a></td>
 									<td>${u.userPhoneNum}</td>
 								</tr>
 								<%} %>
-								 -->
 							</table>
 						</div>
 						<div class="main">
@@ -51,7 +49,7 @@
 						<div class="main">
 							<table class="subTable">
 								<tr>
-									<td><a class="link" href="/user-info/user-insert.jsp">등록</a></td>
+									<td><a href="/user-info/user-insert.jsp">등록</a></td>
 									<td>
 										<select name="searchOption">
 											<option value="id">ID</option>
@@ -59,7 +57,7 @@
 	     									<option value="phoneNum">전화번호</option>
 										</select>
 										<input type="text">
-										<a class="link" href="#">조회</a>
+										<a href="#">조회</a>
 									</td>
 								</tr>
 							</table>
@@ -68,7 +66,7 @@
 				</tr>
 				<tr height="100px">
 					<td colspan=2>
-						<jsp:include page="/sub-page/footer.jsp" flush="false"/>
+						<jsp:include page="/sub-page/bottom.jsp" flush="false"/>
 					</td>
 				</tr>
 		    </table>

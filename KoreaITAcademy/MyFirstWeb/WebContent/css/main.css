@@ -1,19 +1,35 @@
-.link {
-	text-decoration:none;
-	color:black
-} 
+a:link {
+	text-decoration:none; 
+	color:black;
+}
 
-.header-left {
+a:visited {
+	text-decoration:none; 
+	color:black;
+}
+
+a:active {
+	text-decoration:none; 
+	color:black;
+}
+	
+a:hover {
+	text-decoration:none;
+	font-weight:900;
+	color:blue;
+}
+
+.top-left {
 	text-align:left;
 	padding:10px 0px 0px 50px;
 }
 
-.header-right {
+.top-right {
 	text-align:right;
 	padding:0px 100px 0px 0px;
 }
 
-.footer {
+.bottom {
 	text-align:center;
 }
 

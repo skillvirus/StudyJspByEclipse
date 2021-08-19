@@ -5,7 +5,7 @@
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!-- Control -->
+<!-- Controller -->
 <%
 	Connection connection = null; //데이터베이스 연결된 상태(세션)를 저장하는 객체
 	PreparedStatement preparedStatement = null; //SQL문을 나타내는 객체
@@ -84,7 +84,7 @@
 		    <table class="mainTable" border="1">
 				<tr height="100px">
 					<td colspan=2>
-						<jsp:include page="/sub-page/header.jsp" flush="false"/>
+						<jsp:include page="/sub-page/top.jsp" flush="false"/>
 					</td>
 				</tr>
 				<tr height="600px">
@@ -105,7 +105,7 @@
 								%>
 								<tr>
 									<td><%=userList.get(i).getUserID()%></td>
-									<td><a class="link" href="user-detail.jsp?id=<%=userList.get(i).getUserID()%>"><%=userList.get(i).getUserName()%></a></td>
+									<td><a href="user-detail.jsp?id=<%=userList.get(i).getUserID()%>"><%=userList.get(i).getUserName()%></a></td>
 									<td><%=userList.get(i).getUserPhoneNum()%></td>
 								</tr>
 								<%} %>
@@ -118,7 +118,7 @@
 						<div class="main">
 							<table class="subTable">
 								<tr>
-									<td><a class="link" href="/user-info/user-insert.jsp">등록</a></td>
+									<td><a href="/user-info/user-insert.jsp">등록</a></td>
 									<td>
 										<select name="searchOption">
 											<option value="id">ID</option>
@@ -126,7 +126,7 @@
 	     									<option value="phoneNum">전화번호</option>
 										</select>
 										<input type="text">
-										<a class="link" href="#">조회</a>
+										<a href="#">조회</a>
 									</td>
 								</tr>
 							</table>
@@ -135,7 +135,7 @@
 				</tr>
 				<tr height="100px">
 					<td colspan=2>
-						<jsp:include page="/sub-page/footer.jsp" flush="false"/>
+						<jsp:include page="/sub-page/bottom.jsp" flush="false"/>
 					</td>
 				</tr>
 		    </table>
