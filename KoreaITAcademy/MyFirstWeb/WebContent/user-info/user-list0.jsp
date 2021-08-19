@@ -1,11 +1,25 @@
-<%@page import="com.koreait.model.User"%>
-<%@page import="java.util.List"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+	Connection connection = null; //데이터베이스 연결된 상태(세션)를 저장하는 객체
+	PreparedStatement preparedStatement = null; //SQL문을 나타내는 객체
+	ResultSet resultSet = null; //SQL 쿼리문의 결과값을 저장하는 객체
+	String queryString; //SQL 쿼리문
+	queryString = "SELECT UserID, UserName, UserPhoneNum FROM UserInfo";
+	
+	Class.forName("org.sqlite.JDBC");
+	connection = DriverManager.getConnection("jdbc:sqlite:c:/Users/MainUser/UserDevelopProjects/StudyJspByEclipse/KoreaITAcademy/MyFirstWeb/WebContent/Resources/Database/BookManagement.db");
+	preparedStatement = connection.prepareStatement(queryString);
+	resultSet = preparedStatement.executeQuery();
+%>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>사용자 정보 관리</title>
+		<title>사용자 정보 관리(Spaghetti Source)</title>
 		<link rel="stylesheet" href="/css/main.css">
 	</head>
 	<body>
@@ -29,19 +43,15 @@
 									<td><b>이름</b></td>
 									<td><b>전화번호</b></td>
 								</tr>
-								<!-- 
 								<%
-								List<User> userList = (List<User>)request.getAttribute("userList");
-								for (User u : userList) {
-									pageContext.setAttribute("u", u);
+								while(resultSet.next()) {
 								%>
 								<tr>
-									<td>${u.userID}</td>
-									<td><a class="link" href="user-detail.jsp?id=${u.userID}">${u.userName}</a></td>
-									<td>${u.userPhoneNum}</td>
+									<td><%=resultSet.getString("UserID")%></td>
+									<td><a class="link" href="user-detail.jsp?id=<%=resultSet.getString("UserID")%>"><%=resultSet.getString("UserName")%></a></td>
+									<td><%=resultSet.getString("UserPhoneNum")%></td>
 								</tr>
 								<%} %>
-								 -->
 							</table>
 						</div>
 						<div class="main">
@@ -75,4 +85,7 @@
 	    </form>
     </body>
 </html>
-
+<%
+resultSet.close();
+connection.close();
+%>

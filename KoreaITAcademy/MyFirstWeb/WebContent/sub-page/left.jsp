@@ -11,7 +11,7 @@
 				<td>▪<a class="link" href="/index.jsp">HOME</a></td>
 			</tr>
 			<tr>
-				<td>▪<a class="link" href="/user-info/user-list.jsp">사용자 정보 관리</a></td>
+				<td>▪<a class="link" href="/user-info/user-list">사용자 정보 관리</a></td>
 			</tr>
 			<tr>
 				<td>▪<a class="link" href="#">도서 정보 관리</a></td>
