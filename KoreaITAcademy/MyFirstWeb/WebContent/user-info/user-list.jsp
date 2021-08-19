@@ -5,6 +5,7 @@
 
 ResultSet resultSet = null;
 
+//String rootPath = request.getServletContext().getRealPath("/");
 User userInfo = new User();
 
 userInfo.setUserID("");
@@ -110,6 +111,7 @@ String queryString; //SQL 쿼리문
 </html>
 <%
 resultSet.close();
+userInfo.closeDatabase();
 %>
 
 

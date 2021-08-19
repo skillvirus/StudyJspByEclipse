@@ -4,12 +4,15 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.ArrayList;
 
 public class DatabaseAccessHelper {
 	
-	private String connectionString = "jdbc:sqlite:C:\\Users\\MainUser\\UserDevelopProjects\\StudyJspByEclipse\\KoreaITAcademy\\MyFirstWeb\\WebContent\\Resources\\Database\\BookManagement.db";
+	//private String connectionString = "jdbc:sqlite:C:/Users/MainUser/UserDevelopProjects/StudyJspByEclipse/KoreaITAcademy/MyFirstWeb/WebContent/Resources/Database/BookManagement.db"; //절대경로(정적)
+	private String classPath = this.getClass().getResource("").getPath();
+	private String dbPath = classPath.substring(1,classPath.indexOf(".metadata"))+"MyFirstWeb/WebContent/Resources/Database/BookManagement.db"; //절대경로(동적)
+	private String connectionString = "jdbc:sqlite:" + dbPath;
+    
 	private Connection connection = null;
 	private PreparedStatement preparedStatement = null;
 	private ResultSet resultSet = null;
@@ -27,10 +30,7 @@ public class DatabaseAccessHelper {
 			e.printStackTrace();
 		}
 	}
-	
-	//생성자 오버로딩 추가 예정
-	
-	
+
 	/*
 	 * 데이터 베이스 연결
 	 */

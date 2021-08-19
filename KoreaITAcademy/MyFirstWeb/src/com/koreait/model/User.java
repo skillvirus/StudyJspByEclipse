@@ -9,34 +9,53 @@ import java.util.ArrayList;
 import com.koreait.database.DataPack;
 import com.koreait.database.DatabaseAccessHelper;
 
-
-
 public class User {
 	private String userID;//ID
 	private String userName; //이름
 	private String userPhoneNum; //전화번호
+	
+	DatabaseAccessHelper dah = null;
+	ArrayList<DataPack> dp = null;
+	
+	public User() {
+		dah = new DatabaseAccessHelper();
+		dp = new ArrayList<DataPack>();
+	}
+	
+	public User(String userID, String userName, String userPhoneNum) {
+		this.userID = userID;
+		this.userName = userName;
+		this.userPhoneNum = userPhoneNum;
+	}
+	
 	public String getUserID() {
 		return userID;
 	}
+	
 	public void setUserID(String userID) {
 		this.userID = userID;
 	}
+	
 	public String getUserName() {
 		return userName;
 	}
+	
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
+	
 	public String getUserPhoneNum() {
 		return userPhoneNum;
 	}
+	
 	public void setUserPhoneNum(String userPhoneNum) {
 		this.userPhoneNum = userPhoneNum;
 	}
 	
-	public void insertUserInfo(User userInfo) { //등록
-		DatabaseAccessHelper dah = new DatabaseAccessHelper();
-		ArrayList<DataPack> dp = new ArrayList<DataPack>();
+	/*
+	 * 등록
+	 */
+	public void insertUserInfo(User userInfo) {
 		
 		String qry = "INSERT INTO UserInfo (UserID, UserName, UserPhoneNum) VALUES (?,?,?)";
 		
@@ -49,6 +68,9 @@ public class User {
 		dah.close();		
 	}
 	
+	/*
+	 * 수정
+	 */
 	public void updateUserInfo(User userInfo) { //수정
 		Connection ct = null; //데이터베이스 연결객체
 		PreparedStatement ps = null; //SQL문 저장 객체
@@ -74,9 +96,10 @@ public class User {
 		}
 	}
 	
-	public void deleteUserInfo(User userInfo) { //삭제
-		DatabaseAccessHelper dah = new DatabaseAccessHelper();
-		ArrayList<DataPack> dp = new ArrayList<DataPack>();
+	/*
+	 * 삭제
+	 */
+	public void deleteUserInfo(User userInfo) {
 		
 		String qry = " DELETE"
 				   + " FROM 	UserInfo"
@@ -89,10 +112,11 @@ public class User {
 		dah.close();
 	}
 	
-	public ResultSet selectUserInfo(User userInfo) { //조회
-		DatabaseAccessHelper dah = new DatabaseAccessHelper();
-		ArrayList<DataPack> dp = new ArrayList<DataPack>();
-		
+	/*
+	 * 조회
+	 */
+	public ResultSet selectUserInfo(User userInfo) {
+
 		String qry = " SELECT 	UserID," //사용자ID
 				   + " 			UserName," //사용자성명
 				   + "		 	UserPhoneNum" //사용자전화번호
@@ -110,8 +134,14 @@ public class User {
 		dp.add(new DataPack(6, userInfo.userPhoneNum));
 		
 		ResultSet rs = dah.executeQuery(qry, dp);
-		//dah.close();
 		
 		return rs;
+	}
+	
+	/*
+	 * DB 연결 종료
+	 */
+	public void closeDatabase() {
+		dah.close();
 	}
 }
