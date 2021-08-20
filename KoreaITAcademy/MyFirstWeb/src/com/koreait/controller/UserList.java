@@ -69,7 +69,9 @@ public class UserList extends HttpServlet {
 		resultSet = userInfo.selectUserInfo(userInfo);
 		
 		int userRowNo = 0;
-		int recordCount = userInfo.selectUserInfoCount(userInfo); //조회조건을 만족하는 전체 레코드 수
+		
+		User userInfoCount = new User(); //조회조건을 만족하는 전체 레코드 수를 조회할 용도의 인스턴스
+		int recordCount = userInfoCount.selectUserInfoCount(userInfo); //조회조건을 만족하는 전체 레코드 수
 		
 		try {
 			while (resultSet.next()) {
@@ -94,8 +96,10 @@ public class UserList extends HttpServlet {
 			userInfo.closeDatabase();
 		}
 		
-		request.setAttribute("userList", userList);
+
+		
 		request.setAttribute("recordCount", recordCount);
+		request.setAttribute("userList", userList);
 		request.getRequestDispatcher("/user-info/user-list.jsp").forward(request, response); //JSTL사용
 		//request.getRequestDispatcher("/user-info/user-list2.jsp").forward(request, response); //EL사용/JSTL미사용
 	}

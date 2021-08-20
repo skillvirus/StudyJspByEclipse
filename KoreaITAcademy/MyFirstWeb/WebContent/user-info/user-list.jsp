@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -43,7 +44,7 @@
 						<!-- pager_S -->
 						<c:set var="page" value="${(empty param.page)?1:param.page}" />
 						<c:set var="startNum" value="${page-(page-1)%5}" />
-						<c:set var="lastNum" value="" />
+						<c:set var="lastNum" value="${fn:substringBefore(Math.ceil(recordCount/10), '.')}" />
 						<div class="main">
 							<!-- &lt; 1 2 3 4 5 &gt; -->
 							<c:if test="${startNum > 1}">
@@ -54,13 +55,15 @@
 							</c:if>
 														
 							<c:forEach var="i" begin="0" end="4">
+							<c:if test="${lastNum+i <= lastNum}">
 								<a style="color:${(page==(startNum+i))?'red':''};font-weight:${(page==(startNum+i))?'bold':''}" href="?page=${startNum+i}&searchOption=${param.searchOption}&searchContent=${param.searchContent}">${startNum+i}</a>&nbsp;
+							</c:if>
 							</c:forEach>
 							
-							<c:if test="${startNum+5 < lastNum}">
+							<c:if test="${startNum+4 < lastNum}">
 								<a class="pageButton" href="?page=${startNum+5}&searchOption=${param.searchOption}&searchContent=${param.searchContent}">&gt;</a>
 							</c:if>
-							<c:if test="${startNum+5 >= lastNum}">
+							<c:if test="${startNum+4 >= lastNum}">
 								<a class="pageButton" href="" onclick="alert('마지막 페이지입니다.');">&gt;</a>
 							</c:if>
 						</div>

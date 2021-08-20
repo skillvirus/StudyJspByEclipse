@@ -153,9 +153,20 @@ public class User {
 
 		String qry = " SELECT 	COUNT(*) COUNT" //사용자ID
 				   + " FROM 	UserInfo" //사용자정보
-				   + " WHERE 	UserID = CASE WHEN "+ userInfo.userID +" = '' THEN UserID ELSE "+ userInfo.userID+" END" //사용자ID
-		           + "          AND UserName LIKE '" +userInfo.userName + "'"//사용자성명
-		           + "          AND UserPhoneNum LIKE '" +userInfo.userPhoneNum + "'"; //사용자전화번호
+				   + " WHERE 	UserID = CASE WHEN ? = '' THEN UserID ELSE ? END" //사용자ID
+		           + "          AND UserName LIKE ?" //사용자성명
+		           + "          AND UserPhoneNum LIKE ?"; //사용자전화번호
+				   
+		dp.add(new DataPack(1, userInfo.userID));
+		dp.add(new DataPack(2, userInfo.userID));
+		dp.add(new DataPack(3, userInfo.userName));
+		dp.add(new DataPack(4, userInfo.userPhoneNum));
+		
+//		String qry = " SELECT 	COUNT(*) COUNT" //사용자ID
+//				   + " FROM 	UserInfo" //사용자정보
+//				   + " WHERE 	UserID = CASE WHEN "+ userInfo.userID +" = '' THEN UserID ELSE "+ userInfo.userID+" END" //사용자ID
+//		           + "          AND UserName LIKE '" +userInfo.userName + "'"//사용자성명
+//		           + "          AND UserPhoneNum LIKE '" +userInfo.userPhoneNum + "'"; //사용자전화번호
 		
 		
 		ResultSet rs = dah.executeQuery(qry, dp);
@@ -164,7 +175,7 @@ public class User {
 		
 		try {
 			if (rs.next()) {
-				returnValue = rs.getInt("COUNT");
+				returnValue = rs.getInt(1);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
