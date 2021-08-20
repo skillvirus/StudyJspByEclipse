@@ -24,8 +24,8 @@
 	</head>
 	<body>
 		<form method="GET">
-		    <table class="mainTable" border="1">
-				<tr height="100px">
+		    <table class="mainTable">
+				<tr>
 					<td colspan=2>
 						<jsp:include page="/sub-page/top.jsp" flush="false"/>
 					</td>
@@ -36,12 +36,12 @@
 					</td>
 					<td>
 						<div class="main">
-							<h1>사용자 정보</h1>
-							<table class="subTable" border="1">
+							<h2>사용자 정보</h2>
+							<table class="subTable1">
 								<tr>
-									<td><b>ID</b></td>
-									<td><b>이름</b></td>
-									<td><b>전화번호</b></td>
+									<th><b>ID</b></th>
+									<th><b>이름</b></th>
+									<th><b>전화번호</b></th>
 								</tr>
 								<%
 								while(resultSet.next()) {
@@ -59,7 +59,7 @@
 						</div>
 						<br>
 						<div class="main">
-							<table class="subTable">
+							<table class="subTable2">
 								<tr>
 									<td><a href="/user-info/user-insert.jsp">등록</a></td>
 									<td>
@@ -76,7 +76,7 @@
 						</div>
 					</td>
 				</tr>
-				<tr height="100px">
+				<tr>
 					<td colspan=2>
 						<jsp:include page="/sub-page/bottom.jsp" flush="false"/>
 					</td>
@@ -86,6 +86,6 @@
     </body>
 </html>
 <%
-resultSet.close();
-connection.close();
+	resultSet.close();
+	connection.close();
 %>

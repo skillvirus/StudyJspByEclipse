@@ -1,19 +1,19 @@
 package com.koreait.model;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.koreait.database.DataPack;
 import com.koreait.database.DatabaseAccessHelper;
 
 public class User {
+	private Integer userRowNum;
 	private String userID;//ID
 	private String userName; //이름
 	private String userPhoneNum; //전화번호
-	
+	private Integer userPageNum; //List 페이지 번호
+
 	DatabaseAccessHelper dah = null;
 	ArrayList<DataPack> dp = null;
 	
@@ -26,6 +26,21 @@ public class User {
 		this.userID = userID;
 		this.userName = userName;
 		this.userPhoneNum = userPhoneNum;
+	}
+	
+	public User(Integer uerRowNum, String userID, String userName, String userPhoneNum) {
+		this.userRowNum = uerRowNum;
+		this.userID = userID;
+		this.userName = userName;
+		this.userPhoneNum = userPhoneNum;
+	}
+	
+	public Integer getUserRowNum() {
+		return userRowNum;
+	}
+
+	public void setUserRowNum(Integer userRowNum) {
+		this.userRowNum = userRowNum;
 	}
 	
 	public String getUserID() {
@@ -52,6 +67,14 @@ public class User {
 		this.userPhoneNum = userPhoneNum;
 	}
 	
+	public Integer getUserPageNum() {
+		return userPageNum;
+	}
+
+	public void setUserPageNum(Integer userPageNum) {
+		this.userPageNum = userPageNum;
+	}
+	
 	/*
 	 * 등록
 	 */
@@ -64,36 +87,23 @@ public class User {
 		dp.add(new DataPack(3, userInfo.userPhoneNum));
 		
 		dah.executeNonQuery(qry, dp);
-		
-		dah.close();		
 	}
 	
 	/*
 	 * 수정
 	 */
-	public void updateUserInfo(User userInfo) { //수정
-		Connection ct = null; //데이터베이스 연결객체
-		PreparedStatement ps = null; //SQL문 저장 객체
-		String qry; //SQL 쿼리문 저장 문자열
+	public void updateUserInfo(User userInfo) {
 		
-		try {
-			qry = "UPDATE UserInfo SET UserName = ?, UserPhoneNum = ? WHERE UserID = ?";
-			
-			Class.forName("org.sqlite.JDBC");
-			ct = DriverManager.getConnection("jdbc:sqlite:././Resources/Database/BookManagement.db");
-			ps = ct.prepareStatement(qry);
-			
-			ps.setString(1, userInfo.userName);
-			ps.setString(2, userInfo.userPhoneNum);
-			ps.setString(3, userInfo.userID);
-			
-			ps.executeUpdate();
-			
-			ct.close();
-			
-		} catch (Exception e1) {
-			e1.printStackTrace();
-		}
+		String qry = " UPDATE 	UserInfo"
+				   + " SET		UserName = ?,"
+				   + "			UserPhoneNum = ?"
+				   + " WHERE 	UserID = ?";
+		
+		dp.add(new DataPack(1, userInfo.userName));
+		dp.add(new DataPack(2, userInfo.userPhoneNum));
+		dp.add(new DataPack(3, userInfo.userID));
+		
+		dah.executeNonQuery(qry, dp);
 	}
 	
 	/*
@@ -108,8 +118,6 @@ public class User {
 		dp.add(new DataPack(1, userInfo.userID));
 		
 		dah.executeNonQuery(qry, dp);
-		
-		dah.close();
 	}
 	
 	/*
@@ -122,16 +130,16 @@ public class User {
 				   + "		 	UserPhoneNum" //사용자전화번호
 				   + " FROM 	UserInfo" //사용자정보
 				   + " WHERE 	UserID = CASE WHEN ? = '' THEN UserID ELSE ? END" //사용자ID
-		           + "          AND UserName = CASE WHEN ? = '' THEN UserName ELSE ? END" //사용자성명
-		           + "          AND UserPhoneNum = CASE WHEN ? = '' THEN UserPhoneNUm ELSE ? END" //사용자전화번호
-				   + " ORDER BY UserID DESC";
+		           + "          AND UserName LIKE ?" //사용자성명
+		           + "          AND UserPhoneNum LIKE ?" //사용자전화번호
+				   + " ORDER BY UserID DESC"
+				   + " LIMIT 	10 OFFSET ?";
 		
 		dp.add(new DataPack(1, userInfo.userID));
 		dp.add(new DataPack(2, userInfo.userID));
 		dp.add(new DataPack(3, userInfo.userName));
-		dp.add(new DataPack(4, userInfo.userName));
-		dp.add(new DataPack(5, userInfo.userPhoneNum));
-		dp.add(new DataPack(6, userInfo.userPhoneNum));
+		dp.add(new DataPack(4, userInfo.userPhoneNum));
+		dp.add(new DataPack(5, userInfo.userPageNum));
 		
 		ResultSet rs = dah.executeQuery(qry, dp);
 		
@@ -139,9 +147,38 @@ public class User {
 	}
 	
 	/*
-	 * DB 연결 종료
+	 * 조회(조회조건에 맞는 전체 Record 수)
+	 */
+	public int selectUserInfoCount(User userInfo) {
+
+		String qry = " SELECT 	COUNT(*) COUNT" //사용자ID
+				   + " FROM 	UserInfo" //사용자정보
+				   + " WHERE 	UserID = CASE WHEN "+ userInfo.userID +" = '' THEN UserID ELSE "+ userInfo.userID+" END" //사용자ID
+		           + "          AND UserName LIKE '" +userInfo.userName + "'"//사용자성명
+		           + "          AND UserPhoneNum LIKE '" +userInfo.userPhoneNum + "'"; //사용자전화번호
+		
+		
+		ResultSet rs = dah.executeQuery(qry, dp);
+		
+		int returnValue = 0;
+		
+		try {
+			if (rs.next()) {
+				returnValue = rs.getInt("COUNT");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return returnValue;
+	}
+	
+	/*
+	 * Database 연결 종료
 	 */
 	public void closeDatabase() {
-		dah.close();
+		if (dah != null) {
+			dah.close();
+		}
 	}
 }

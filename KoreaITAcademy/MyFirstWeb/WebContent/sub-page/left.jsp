@@ -6,15 +6,15 @@
 		<title>Left</title>
 	</head>
 	<body>
-		<div>
+		<div class="left-body">
 			<ul>
 				<li><a href="/index.jsp">HOME</a></li>
 			</ul>
 			<ul>
 				<!-- <li><a href="/user-info/user-list0.jsp">사용자 정보 관리</a></li><!-- Spaghetti Source -->
 				<!-- <li><a href="/user-info/user-list1.jsp">사용자 정보 관리</a></li><!-- MVC1 -->
-				<li><a href="/user-info/user-list2">사용자 정보 관리</a></li><!-- MVC2(JSTL미사용) -->
-				<!-- <li><a href="/user-info/user-list">사용자 정보 관리</a></li><!-- MVC2(JSTL사용) -->
+				<!-- <li><a href="/user-info/user-list2">사용자 정보 관리</a></li><!-- MVC2(JSTL미사용) -->
+				<li><a href="/user-info/user-list">사용자 정보 관리</a></li><!-- MVC2(JSTL사용) -->
 			</ul>
 			<ul>
 				<li><a href="#">도서 정보 관리</a></li>

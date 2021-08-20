@@ -7,8 +7,8 @@
 		<link rel="stylesheet" href="/css/main.css">
 	</head>
 	<body>
-	    <table class="mainTable" border="1">
-			<tr height="100px">
+	    <table class="mainTable">
+			<tr>
 				<td colspan=2>
 					<jsp:include page="/sub-page/top.jsp" flush="false"/>
 				</td>
@@ -21,7 +21,7 @@
 					<h1>도서 대여 관리 시스템</h1>
 				</td>
 			</tr>
-			<tr height="100px">
+			<tr>
 				<td colspan=2>
 					<jsp:include page="/sub-page/bottom.jsp" flush="false"/>
 				</td>
