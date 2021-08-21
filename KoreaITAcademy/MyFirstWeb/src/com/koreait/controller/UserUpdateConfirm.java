@@ -31,6 +31,6 @@ public class UserUpdateConfirm extends HttpServlet {
 
 		userInfo.updateUserInfo(userInfo);
 		
-		response.sendRedirect("/user-info/user-list");
+		response.sendRedirect("/user-info/user-detail?userid=" + userID);
 	}
 }

@@ -17,6 +17,9 @@
 					</td>
 				</tr>
 				<tr height="600px">
+					<c:set var="page" value="${(empty param.page)?1:param.page}" />
+					<c:set var="startNum" value="${page-(page-1)%5}" />
+					<c:set var="lastNum" value="${fn:substringBefore(Math.ceil(recordCount/10), '.')}" />
 					<td width="20%">
 						<jsp:include page="/sub-page/left.jsp" flush="false"/>
 					</td>
@@ -40,31 +43,29 @@
 								</c:forEach>
 							</table>
 						</div>
-						<br>
+						<div class="main">
+							<p>${page}/${lastNum} pages</p>
+						</div>
 						<!-- pager_S -->
-						<c:set var="page" value="${(empty param.page)?1:param.page}" />
-						<c:set var="startNum" value="${page-(page-1)%5}" />
-						<c:set var="lastNum" value="${fn:substringBefore(Math.ceil(recordCount/10), '.')}" />
+						<!-- <p>page:${page} / startNum:${startNum} / lastNum:${lastNum}</p> -->
 						<div class="main">
 							<!-- &lt; 1 2 3 4 5 &gt; -->
-							<c:if test="${startNum > 1}">
-								<a class="pageButton" href="?page=${startNum-1}&searchOption=${param.searchOption}&searchContent=${param.searchContent}">&lt;</a>
+							<c:if test="${page > 1}">
+								<a class="pageButton" href="?page=${page-1}&searchOption=${param.searchOption}&searchContent=${param.searchContent}">&lt;</a>
 							</c:if>
-							<c:if test="${startNum <= 1}">
-								<a class="pageButton" href="" onclick="alert('첫 페이지입니다.');">&lt;</a>
-							</c:if>
-														
+							<c:if test="${page <= 1}">
+								<a class="pageButton" onclick="alert('이전 페이지가 없습니다.');">&lt;</a>
+							</c:if>					
 							<c:forEach var="i" begin="0" end="4">
-							<c:if test="${lastNum+i <= lastNum}">
-								<a style="color:${(page==(startNum+i))?'red':''};font-weight:${(page==(startNum+i))?'bold':''}" href="?page=${startNum+i}&searchOption=${param.searchOption}&searchContent=${param.searchContent}">${startNum+i}</a>&nbsp;
+							<c:if test="${startNum + i - 1 < lastNum}">
+								<a style="color:${(page==(startNum+i))?'orange':''};font-weight:${(page==(startNum+i))?'bold':''}" href="?page=${startNum+i}&searchOption=${param.searchOption}&searchContent=${param.searchContent}">${startNum+i}</a>
 							</c:if>
 							</c:forEach>
-							
-							<c:if test="${startNum+4 < lastNum}">
-								<a class="pageButton" href="?page=${startNum+5}&searchOption=${param.searchOption}&searchContent=${param.searchContent}">&gt;</a>
+							<c:if test="${page < lastNum}">
+								<a class="pageButton" href="?page=${page+1}&searchOption=${param.searchOption}&searchContent=${param.searchContent}">&gt;</a>
 							</c:if>
-							<c:if test="${startNum+4 >= lastNum}">
-								<a class="pageButton" href="" onclick="alert('마지막 페이지입니다.');">&gt;</a>
+							<c:if test="${page >= lastNum}">
+								<a class="pageButton" onclick="alert('다음 페이지가 없습니다.');">&gt;</a>
 							</c:if>
 						</div>
 						<!-- pager_E -->
@@ -72,12 +73,14 @@
 							<table class="subTable2">
 								<tr>
 									<td><a class="button" href="/user-info/user-insert.jsp">등록</a></td>
-									<td align="right">
+									<td align="right" width="100%">
 										<select name="searchOption" style="width:80px;height:26px;">
 											<option ${(param.searchOption == "id") ? "selected" : ""} value="id">ID</option>
 	      									<option ${(param.searchOption == "name") ? "selected" : ""} value="name">이름</option>
 	     									<option ${(param.searchOption == "phoneNum") ? "selected" : ""} value="phoneNum">전화번호</option>
 										</select>
+									</td>
+									<td align="right">
 										<input type="text" name="searchContent" value="${param.searchContent}">
 									</td>
 									<td align="left">

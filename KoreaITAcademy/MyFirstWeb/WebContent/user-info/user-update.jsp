@@ -42,7 +42,7 @@
 								<tr align="left">
 									<td>
 										<a class="button" href="/user-info/user-list">목록</a>&nbsp;
-										<input type="submit" id="submitMouseHover" value="확인"/>
+										<input type="submit" id="submitMouseHover" value="갱신"/>
 									</td>
 								</tr>
 							</table>

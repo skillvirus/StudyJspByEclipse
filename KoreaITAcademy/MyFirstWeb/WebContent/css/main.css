@@ -133,6 +133,19 @@ table.subTable2 {
 	border : 0px;
 }
 
+.subTable3 {
+	width : 95%;
+	margin : auto;
+}
+
+.subTable3 td {
+	height : 0px;
+}
+
+table.subTable3 {
+	border : 0px;
+}
+
 input[type="text"] {
 	border : 1px solid #909090;
 	width : 150px;

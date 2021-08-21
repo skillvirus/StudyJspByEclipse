@@ -125,14 +125,15 @@ public class User {
 	 */
 	public ResultSet selectUserInfo(User userInfo) {
 
-		String qry = " SELECT 	UserID," //사용자ID
+		String qry = " SELECT 	ROW_NUMBER() OVER () AS [UserRowNum],"
+				   + "			UserID," //사용자ID
 				   + " 			UserName," //사용자성명
 				   + "		 	UserPhoneNum" //사용자전화번호
 				   + " FROM 	UserInfo" //사용자정보
 				   + " WHERE 	UserID = CASE WHEN ? = '' THEN UserID ELSE ? END" //사용자ID
-		           + "          AND UserName LIKE ?" //사용자성명
-		           + "          AND UserPhoneNum LIKE ?" //사용자전화번호
-				   + " ORDER BY UserID DESC"
+				   + "          AND UserName LIKE ?" //사용자성명
+				   + "          AND UserPhoneNum LIKE ?" //사용자전화번호
+				   + " ORDER BY	ROW_NUMBER() OVER () DESC"
 				   + " LIMIT 	10 OFFSET ?";
 		
 		dp.add(new DataPack(1, userInfo.userID));
@@ -161,13 +162,6 @@ public class User {
 		dp.add(new DataPack(2, userInfo.userID));
 		dp.add(new DataPack(3, userInfo.userName));
 		dp.add(new DataPack(4, userInfo.userPhoneNum));
-		
-//		String qry = " SELECT 	COUNT(*) COUNT" //사용자ID
-//				   + " FROM 	UserInfo" //사용자정보
-//				   + " WHERE 	UserID = CASE WHEN "+ userInfo.userID +" = '' THEN UserID ELSE "+ userInfo.userID+" END" //사용자ID
-//		           + "          AND UserName LIKE '" +userInfo.userName + "'"//사용자성명
-//		           + "          AND UserPhoneNum LIKE '" +userInfo.userPhoneNum + "'"; //사용자전화번호
-		
 		
 		ResultSet rs = dah.executeQuery(qry, dp);
 		
