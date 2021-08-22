@@ -50,21 +50,21 @@
 						<!-- <p>page:${page} / startNum:${startNum} / lastNum:${lastNum}</p> -->
 						<div class="main">
 							<!-- &lt; 1 2 3 4 5 &gt; -->
-							<c:if test="${page > 1}">
+							<c:if test="${page+0 > 1}">
 								<a class="pageButton" href="?page=${page-1}&searchOption=${param.searchOption}&searchContent=${param.searchContent}">&lt;</a>
 							</c:if>
-							<c:if test="${page <= 1}">
+							<c:if test="${page+0 <= 1}">
 								<a class="pageButton" onclick="alert('이전 페이지가 없습니다.');">&lt;</a>
-							</c:if>					
+							</c:if>
 							<c:forEach var="i" begin="0" end="4">
 							<c:if test="${startNum + i - 1 < lastNum}">
 								<a style="color:${(page==(startNum+i))?'orange':''};font-weight:${(page==(startNum+i))?'bold':''}" href="?page=${startNum+i}&searchOption=${param.searchOption}&searchContent=${param.searchContent}">${startNum+i}</a>
 							</c:if>
 							</c:forEach>
-							<c:if test="${page < lastNum}">
+							<c:if test="${page+0 < lastNum+0}">
 								<a class="pageButton" href="?page=${page+1}&searchOption=${param.searchOption}&searchContent=${param.searchContent}">&gt;</a>
 							</c:if>
-							<c:if test="${page >= lastNum}">
+							<c:if test="${page+0 >= lastNum+0}">
 								<a class="pageButton" onclick="alert('다음 페이지가 없습니다.');">&gt;</a>
 							</c:if>
 						</div>

@@ -141,8 +141,12 @@ public class User {
 		dp.add(new DataPack(3, userInfo.userName));
 		dp.add(new DataPack(4, userInfo.userPhoneNum));
 		dp.add(new DataPack(5, userInfo.userPageNum));
-		
+
 		ResultSet rs = dah.executeQuery(qry, dp);
+		
+//		//user-list2 용
+//		String qry = "SELECT * FROM UserInfo";
+//		ResultSet rs = dah.executeQuery(qry);
 		
 		return rs;
 	}
