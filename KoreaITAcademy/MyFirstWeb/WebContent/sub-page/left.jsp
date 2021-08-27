@@ -17,7 +17,7 @@
 				<li><a href="/user-info/user-list">사용자 정보 관리</a></li><!-- MVC2(JSTL사용) -->
 			</ul>
 			<ul>
-				<li><a href="#">도서 정보 관리</a></li>
+				<li><a href="/book-info/book-list">도서 정보 관리</a></li>
 			</ul>
 			<ul>
 				<li><a href="#">도서 대여정보 관리</a></li>

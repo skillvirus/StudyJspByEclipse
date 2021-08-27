@@ -8,11 +8,11 @@ import com.koreait.database.DataPack;
 import com.koreait.database.DatabaseAccessHelper;
 
 public class User {
-	private Integer userRowNum;
+	private int userRowNum;
 	private String userID;//ID
 	private String userName; //이름
 	private String userPhoneNum; //전화번호
-	private Integer userPageNum; //List 페이지 번호
+	private int userPageNum; //List 페이지 번호
 
 	DatabaseAccessHelper dah = null;
 	ArrayList<DataPack> dp = null;
@@ -28,18 +28,18 @@ public class User {
 		this.userPhoneNum = userPhoneNum;
 	}
 	
-	public User(Integer uerRowNum, String userID, String userName, String userPhoneNum) {
-		this.userRowNum = uerRowNum;
+	public User(int userRowNum, String userID, String userName, String userPhoneNum) {
+		this.userRowNum = userRowNum;
 		this.userID = userID;
 		this.userName = userName;
 		this.userPhoneNum = userPhoneNum;
 	}
 	
-	public Integer getUserRowNum() {
+	public int getUserRowNum() {
 		return userRowNum;
 	}
 
-	public void setUserRowNum(Integer userRowNum) {
+	public void setUserRowNum(int userRowNum) {
 		this.userRowNum = userRowNum;
 	}
 	
@@ -67,11 +67,11 @@ public class User {
 		this.userPhoneNum = userPhoneNum;
 	}
 	
-	public Integer getUserPageNum() {
+	public int getUserPageNum() {
 		return userPageNum;
 	}
 
-	public void setUserPageNum(Integer userPageNum) {
+	public void setUserPageNum(int userPageNum) {
 		this.userPageNum = userPageNum;
 	}
 	
